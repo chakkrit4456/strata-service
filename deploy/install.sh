@@ -51,6 +51,12 @@ else
   mkdir -p "$(dirname "$APP_DIR")"
   git clone "$REPO" "$APP_DIR"
 fi
+# bash อ่านสคริปต์ทั้งไฟล์ตอนเริ่ม — หลัง pull ต้องรันไฟล์ใหม่บนดิสก์
+# ไม่งั้นสำเนาเก่า (เช่น /var/www/strata-service) ยังมี sudo อยู่แม้รีโปอัปเดตแล้ว
+if [ "${INSTALL_SELF_UPDATED:-0}" != 1 ]; then
+  export INSTALL_SELF_UPDATED=1
+  exec bash "$APP_DIR/deploy/install.sh" "$@"
+fi
 cd "$APP_DIR"
 
 FIRST_INSTALL=0
