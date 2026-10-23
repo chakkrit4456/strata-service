@@ -1,5 +1,18 @@
 # ติดตั้ง Strata บน TurnKey Linux Node.js
 
+## ติดตั้งอัตโนมัติ (แนะนำ)
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/chakkrit4456/strata-service/main/deploy/install.sh -o install.sh
+GEMINI_API_KEY=xxx GROQ_API_KEY=yyy bash install.sh https://strata.itdev.in.th
+```
+
+สคริปต์จะติดตั้ง PostgreSQL, สร้างฐานข้อมูล, `.env`, build, รันด้วย PM2, ตั้ง cron
+และ **แสดงชื่อผู้ใช้ + รหัสผ่าน admin เมื่อเสร็จ** (บันทึกไว้ที่ `/root/strata-admin.txt`)
+รันซ้ำเพื่ออัปเดตเวอร์ชันได้ · ลืมรหัส: `RESET_ADMIN_PASSWORD=1 bash install.sh <URL>`
+
+## ติดตั้งเอง
+
 ```bash
 apt update && apt install -y postgresql
 sudo -u postgres psql -c "create user strata with password 'change-me';"
