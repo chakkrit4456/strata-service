@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"><style>body{margin:0;background:#E4E1DA;font-family:'IBM Plex Sans','IBM Plex Sans Thai',sans-serif;color:#0D0F11;-webkit-font-smoothing:antialiased}a{color:#8A6F35;text-decoration:none}a:hover{color:#0D0F11}.dv-turn{padding:48px 56px 40px;border-bottom:1px solid rgba(0,0,0,.08)}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 24px}.dv-tid{font:600 10px 'IBM Plex Mono',monospace;padding:3px 7px;background:#0D0F11;color:#EFECE5;border-radius:4px}.dv-tname{font-weight:600;font-size:14px}.dv-opts{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start}.dv-opt{flex:none;display:flex;flex-direction:column;gap:10px}.dv-oid{font:600 10.5px 'IBM Plex Mono',monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#0D0F11;border-radius:5px}.dv-olabel{display:flex;align-items:baseline;gap:8px;font-size:12px;color:#5E5C57}.dv-card{background:#fff;border-radius:10px;box-shadow:0 1px 2px rgba(0,0,0,.08),0 12px 40px rgba(0,0,0,.08);overflow:hidden}.dv-opt:target .dv-oid{background:#C9AE73;color:#0D0F11}.dv-next{margin:28px 0 0;font-size:12px;color:#5E5C57}</style></helmet>
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Strata — ระบบรับงานผ่าน AI · 6 หน้าจอ (ลูกค้า 01–03 · หลังบ้าน 04–06)</span></div>
+<div style="max-width:1440px;margin:0 0 32px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;font-size:13px;line-height:1.6;color:#3A3935">
+<div style="display:flex;flex-direction:column;gap:6px"><div style="font:500 11px 'IBM Plex Mono',monospace;color:#8A6F35;letter-spacing:.08em">โครงสร้าง</div><div style="text-wrap:pretty">ใช้รูปแบบ workspace — Sidebar ซ้าย, Header + แท็บมุมมอง, รายการจัดกลุ่มเป็น Section, Panel รายละเอียดด้านขวา เพื่อให้เจ้าของจัดการบทสนทนาเหมือนจัดการงาน</div></div>
+<div style="display:flex;flex-direction:column;gap:6px"><div style="font:500 11px 'IBM Plex Mono',monospace;color:#8A6F35;letter-spacing:.08em">ภาพลักษณ์</div><div style="text-wrap:pretty">สีจากโลโก้: ดำ #0D0F11 · ขาวนวล #EFECE5 · ทอง #C9AE73 จุดทองของโลโก้ใช้เป็นสัญลักษณ์ AI และสิ่งที่ต้องสนใจ ฟอนต์ IBM Plex Sans Thai + Mono</div></div>
+<div style="display:flex;flex-direction:column;gap:6px"><div style="font:500 11px 'IBM Plex Mono',monospace;color:#8A6F35;letter-spacing:.08em">สมมติฐาน</div><div style="text-wrap:pretty">แชทครบ 6 เดือนนับจากกิจกรรมล่าสุด ถูกซ่อนจากหน้า Admin (ย้ายเข้าคลัง) แต่ Audit log เก็บทั้งหมดแบบลบไม่ได้ ใช้ Tweaks ปรับความคืบหน้าของแชท 02 ได้</div></div>
+</div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="1a" data-screen-label="01 Landing"><div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>01 · หน้าแรก — คุยกันก่อน</div>
+<div class="dv-card" style="width:1440px;height:900px;background:#0D0F11;color:#EFECE5;display:flex;flex-direction:column">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:22px 56px;border-bottom:1px solid #22262A">
+<div style="display:flex;align-items:center;gap:12px"><span style="width:32px;height:32px;overflow:hidden;position:relative;border-radius:6px;flex:none"><img src="assets/logo.png" alt="Strata" style="position:absolute;width:96px;height:96px;left:-32px;top:-32px"></span><span style="font-weight:600;font-size:18px;letter-spacing:-.01em">strata</span><span style="font:400 11px 'IBM Plex Mono',monospace;color:#8B8A85">software studio</span></div>
+<div style="display:flex;align-items:center;gap:36px;font-size:14px;color:#B9B6AE"><span>บริการ</span><span>ผลงาน</span><span>ขั้นตอน</span><span>แพ็กเกจ</span><span style="padding:10px 18px;background:#C9AE73;color:#0D0F11;border-radius:6px;font-weight:600">เริ่มคุยโปรเจกต์</span></div>
+</div>
+<div style="flex:1;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;padding:64px 56px 40px;min-height:0">
+<div style="display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;align-items:center;gap:10px;font:500 12px 'IBM Plex Mono',monospace;color:#C9AE73;letter-spacing:.06em"><span style="width:8px;height:8px;background:#C9AE73"></span>SOFTWARE · AI AUTOMATION · IT SERVICE</div>
+<div style="font-family:'IBM Plex Sans Thai',sans-serif;font-weight:600;font-size:76px;line-height:1.12;letter-spacing:-.02em">คุยกันก่อน<br><span style="color:#8B8A85">แล้วค่อยเริ่มงาน</span></div>
+<div style="font-family:'IBM Plex Sans Thai',sans-serif;font-size:18px;line-height:1.65;color:#B9B6AE;max-width:540px;text-wrap:pretty">เล่าโปรเจกต์ให้ AI ของเราฟัง ระบบจะถามรายละเอียดจนครบและสรุปเป็น Requirement ให้ — ฟรี ไม่ต้องสมัคร ทีมงานติดต่อกลับพร้อมราคาภายใน 24 ชม.</div>
+<div style="background:#16191C;border:1px solid #2C3135;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:16px;max-width:600px">
+<div style="display:flex;gap:12px;align-items:flex-start"><span style="width:10px;height:10px;background:#C9AE73;margin-top:7px;flex:none"></span><div style="font-family:'IBM Plex Sans Thai',sans-serif;font-size:16px;color:#6F6D68;line-height:1.6">เช่น อยากได้ระบบสต็อกร้าน 2 สาขา แจ้งเตือนเข้า LINE…</div></div>
+<div style="display:flex;justify-content:space-between;align-items:center">
+<div style="display:flex;gap:8px;flex-wrap:wrap;font-family:'IBM Plex Sans Thai',sans-serif;font-size:13px;color:#B9B6AE"><span style="padding:6px 12px;border:1px solid #2C3135;border-radius:999px">เว็บไซต์ / ระบบ</span><span style="padding:6px 12px;border:1px solid #2C3135;border-radius:999px">AI Automation</span><span style="padding:6px 12px;border:1px solid #2C3135;border-radius:999px">แก้ไขโค้ด</span><span style="padding:6px 12px;border:1px solid #2C3135;border-radius:999px">PowerPoint</span></div>
+<span style="width:40px;height:40px;border-radius:8px;background:#EFECE5;color:#0D0F11;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:600">↑</span>
+</div>
+</div>
+<div style="display:flex;gap:20px;font:400 12px 'IBM Plex Mono',monospace;color:#6F6D68"><span>มาจาก Fastwork หรือ Facebook? เริ่มคุยต่อที่นี่ได้เลย</span></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px;min-height:0">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'IBM Plex Sans Thai',sans-serif;font-weight:600;font-size:15px">บริการทั้งหมด</span><span style="font:400 12px 'IBM Plex Mono',monospace;color:#6F6D68">09 หมวด</span></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#22262A;border:1px solid #22262A;border-radius:12px;overflow:hidden">
+<sc-for list="{{ services }}" as="s" hint-placeholder-count="9"><div style="background:#0D0F11;padding:18px 20px;display:flex;flex-direction:column;gap:6px;min-height:62px"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'IBM Plex Sans Thai',sans-serif;font-weight:600;font-size:15px">{{ s.name }}</span><span style="font:400 11px 'IBM Plex Mono',monospace;color:#6F6D68">{{ s.no }}</span></div><span style="font-family:'IBM Plex Sans Thai',sans-serif;font-size:13px;color:#8B8A85;line-height:1.5">{{ s.desc }}</span></div></sc-for>
+<div style="background:#16191C;padding:18px 20px;display:flex;flex-direction:column;justify-content:center;gap:4px"><span style="font-family:'IBM Plex Sans Thai',sans-serif;font-weight:600;font-size:15px;color:#C9AE73">ไม่แน่ใจว่าอยู่หมวดไหน?</span><span style="font-family:'IBM Plex Sans Thai',sans-serif;font-size:13px;color:#8B8A85">พิมพ์เล่าได้เลย AI ช่วยจัดให้</span></div>
+</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #22262A">
+<div style="padding:22px 56px;display:flex;gap:14px;border-right:1px solid #22262A"><span style="font:500 12px 'IBM Plex Mono',monospace;color:#C9AE73">01</span><span style="font-family:'IBM Plex Sans Thai',sans-serif;font-size:14px;color:#B9B6AE">คุยกับ AI เล่าความต้องการ</span></div>
+<div style="padding:22px 32px;display:flex;gap:14px;border-right:1px solid #22262A"><span style="font:500 12px 'IBM Plex Mono',monospace;color:#C9AE73">02</span><span style="font-family:'IBM Plex Sans Thai',sans-serif;font-size:14px;color:#B9B6AE">ได้ Requirement สรุปทันที</span></div>
+<div style="padding:22px 32px;display:flex;gap:14px;border-right:1px solid #22262A"><span style="font:500 12px 'IBM Plex Mono',monospace;color:#C9AE73">03</span><span style="font-family:'IBM Plex Sans Thai',sans-serif;font-size:14px;color:#B9B6AE">รับใบเสนอราคาใน 24 ชม.</span></div>
+<div style="padding:22px 32px;display:flex;gap:14px"><span style="font:500 12px 'IBM Plex Mono',monospace;color:#C9AE73">04</span><span style="font-family:'IBM Plex Sans Thai',sans-serif;font-size:14px;color:#B9B6AE">อนุมัติแบบ แล้วเริ่มพัฒนา</span></div>
+</div>
+</div></div>
+
+<div class="dv-opt" id="1b" data-screen-label="02 AI Chat"><div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>02 · แชทกับ AI + Requirement ร่างสด</div>
+<div class="dv-card" style="width:1440px;height:900px;background:#FAF9F6;display:flex;flex-direction:column;font-family:'IBM Plex Sans Thai','IBM Plex Sans',sans-serif">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:14px 28px;border-bottom:1px solid #E4E1DA;background:#fff">
+<div style="display:flex;align-items:center;gap:14px"><span style="width:28px;height:28px;overflow:hidden;position:relative;border-radius:6px;flex:none"><img src="assets/logo.png" alt="Strata" style="position:absolute;width:84px;height:84px;left:-28px;top:-28px"></span><span style="font-weight:600;font-size:15px">โปรเจกต์ใหม่</span><span style="font:400 12px 'IBM Plex Mono',monospace;color:#5E5C57">#S-0142</span><span style="font:500 11px 'IBM Plex Mono',monospace;padding:3px 8px;border-radius:4px;background:#F1ECDF;color:#6E5726">src=fastwork</span></div>
+<div style="display:flex;align-items:center;gap:16px;font-size:13px;color:#5E5C57"><span>บันทึกอัตโนมัติ · กลับมาคุยต่อได้ด้วยลิงก์นี้</span><span style="padding:8px 14px;border:1px solid #D8D4CB;border-radius:6px;color:#0D0F11;font-weight:500">คัดลอกลิงก์</span></div>
+</div>
+<div style="flex:1;display:grid;grid-template-columns:minmax(0,1fr) 440px;min-height:0">
+<div style="display:flex;flex-direction:column;min-height:0">
+<div style="flex:1;overflow:hidden;padding:32px 64px;display:flex;flex-direction:column;gap:18px;justify-content:flex-end">
+<sc-for list="{{ chatMsgs }}" as="m" hint-placeholder-count="6">
+<sc-if value="{{ m.isAi }}"><div style="display:flex;gap:12px;max-width:640px"><span style="width:28px;height:28px;border-radius:6px;background:#0D0F11;display:flex;align-items:center;justify-content:center;flex:none"><span style="width:8px;height:8px;background:#C9AE73"></span></span><div style="display:flex;flex-direction:column;gap:4px"><span style="font:500 11px 'IBM Plex Mono',monospace;color:#5E5C57">Strata AI · {{ m.time }}</span><div style="font-size:15px;line-height:1.65;color:#0D0F11;text-wrap:pretty">{{ m.text }}</div></div></div></sc-if>
+<sc-if value="{{ m.isUser }}"><div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;align-self:flex-end;max-width:560px"><sc-if value="{{ m.file }}"><div style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:#fff;border:1px solid #E4E1DA;border-radius:10px"><span style="width:34px;height:40px;border-radius:4px;background:#E7EFE9;color:#2F6B4A;font:600 10px 'IBM Plex Mono',monospace;display:flex;align-items:center;justify-content:center">XLSX</span><div style="display:flex;flex-direction:column"><span style="font:500 13px 'IBM Plex Mono',monospace">{{ m.file }}</span><span style="font-size:12px;color:#5E5C57">1.2 MB</span></div></div></sc-if><sc-if value="{{ m.text }}"><div style="padding:12px 16px;background:#0D0F11;color:#EFECE5;border-radius:12px 12px 2px 12px;font-size:15px;line-height:1.6;text-wrap:pretty">{{ m.text }}</div></sc-if><span style="font:400 11px 'IBM Plex Mono',monospace;color:#8B8A85">{{ m.time }}</span></div></sc-if>
+</sc-for>
+</div>
+<div style="padding:0 64px 28px">
+<div style="background:#fff;border:1px solid #D8D4CB;border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 2px 8px rgba(13,15,17,.04)"><span style="width:32px;height:32px;border-radius:6px;border:1px solid #E4E1DA;display:flex;align-items:center;justify-content:center;color:#5E5C57;font-size:18px">+</span><span style="flex:1;font-size:15px;color:#8B8A85">พิมพ์ข้อความ หรือแนบไฟล์ / รูป / ลิงก์ตัวอย่าง…</span><span style="width:36px;height:36px;border-radius:8px;background:#0D0F11;color:#EFECE5;display:flex;align-items:center;justify-content:center;font-weight:600">↑</span></div>
+<div style="font:400 11px 'IBM Plex Mono',monospace;color:#8B8A85;margin-top:10px;text-align:center">AI อาจตอบผิดได้ ทีม Strata จะตรวจ Requirement อีกครั้งก่อนเสนอราคา</div>
+</div>
+</div>
+<div style="border-left:1px solid #E4E1DA;background:#fff;display:flex;flex-direction:column;min-height:0">
+<div style="padding:24px 28px 20px;border-bottom:1px solid #EEEBE4;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-weight:600;font-size:16px">Requirement ร่าง</span><span style="font:500 13px 'IBM Plex Mono',monospace">{{ reqPct }}%</span></div>
+<div style="height:4px;background:#EEEBE4;border-radius:2px;overflow:hidden"><div style="height:4px;background:#C9AE73;width:{{ reqPct }}%"></div></div>
+<span style="font-size:12px;color:#5E5C57">อัปเดตอัตโนมัติระหว่างคุย · {{ reqFilled }}/7 หัวข้อ</span>
+</div>
+<div style="flex:1;overflow:hidden;padding:8px 28px;display:flex;flex-direction:column">
+<sc-for list="{{ reqFields }}" as="f" hint-placeholder-count="7"><div style="padding:14px 0;border-bottom:1px solid #F1EEE8;display:flex;gap:12px"><sc-if value="{{ f.done }}"><span style="width:16px;height:16px;border-radius:3px;background:#0D0F11;color:#C9AE73;font-size:11px;display:flex;align-items:center;justify-content:center;flex:none;margin-top:2px">✓</span></sc-if><sc-if value="{{ f.pending }}"><span style="width:16px;height:16px;border-radius:3px;border:1.5px dashed #C4C0B6;flex:none;margin-top:2px;box-sizing:border-box"></span></sc-if><div style="display:flex;flex-direction:column;gap:3px;min-width:0"><span style="font-size:12px;color:#5E5C57">{{ f.label }}</span><sc-if value="{{ f.done }}"><span style="font-size:14px;line-height:1.5;color:#0D0F11">{{ f.value }}</span></sc-if><sc-if value="{{ f.pending }}"><span style="font-size:14px;color:#A9A59C">รอข้อมูลจากแชท</span></sc-if></div></div></sc-for>
+</div>
+<div style="padding:20px 28px;border-top:1px solid #EEEBE4;display:flex;gap:10px"><span style="flex:1;padding:12px;text-align:center;border-radius:8px;background:#0D0F11;color:#EFECE5;font-weight:600;font-size:14px">ดูสรุปและยืนยัน</span></div>
+</div>
+</div>
+</div></div>
+
+<div class="dv-opt" id="1c" data-screen-label="03 Requirement"><div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>03 · สรุป Requirement ก่อนยืนยัน</div>
+<div class="dv-card" style="width:1440px;height:900px;background:#EFECE5;display:flex;flex-direction:column;font-family:'IBM Plex Sans Thai','IBM Plex Sans',sans-serif">
+<div style="display:flex;align-items:center;gap:14px;padding:14px 28px;border-bottom:1px solid #DDD9D0"><span style="width:28px;height:28px;overflow:hidden;position:relative;border-radius:6px;flex:none"><img src="assets/logo.png" alt="Strata" style="position:absolute;width:84px;height:84px;left:-28px;top:-28px"></span><span style="font-size:13px;color:#5E5C57">← กลับไปแชท</span></div>
+<div style="flex:1;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:40px;padding:40px 120px 0 200px;min-height:0">
+<div style="background:#fff;border-radius:10px 10px 0 0;padding:48px 56px;display:flex;flex-direction:column;gap:28px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.05)">
+<div style="display:flex;flex-direction:column;gap:10px"><span style="font:500 11px 'IBM Plex Mono',monospace;color:#8A6F35;letter-spacing:.08em">REQUIREMENT · S-0142 · 23 ต.ค. 2026</span><span style="font-weight:600;font-size:34px;letter-spacing:-.01em;line-height:1.25">ระบบสต็อกสินค้า 2 สาขา<br>พร้อมแจ้งเตือน LINE</span><span style="font-size:14px;color:#5E5C57">ร้าน PC Parts ร้อยเอ็ด · มาจาก Fastwork</span></div>
+<div style="display:grid;grid-template-columns:140px 1fr;row-gap:18px;column-gap:24px;font-size:15px;line-height:1.6;border-top:1px solid #EEEBE4;padding-top:24px">
+<span style="color:#5E5C57">ผู้ติดต่อ</span><span>คุณสมชาย · <span style="font-family:'IBM Plex Mono',monospace;font-size:14px">089-123-4567</span> · LINE @pcparts101</span>
+<span style="color:#5E5C57">เป้าหมาย</span><span>เลิกใช้ Excel แยกสาขา ให้เจ้าของเห็นสต็อกรวมแบบเรียลไทม์</span>
+<span style="color:#5E5C57">ผู้ใช้</span><span>เจ้าของ — เห็นทุกอย่าง · พนักงาน 2 สาขา — รับเข้า / ตัดออกเท่านั้น</span>
+<span style="color:#5E5C57">ต้องมี</span><div style="display:flex;flex-direction:column;gap:4px"><span>— รับเข้า / ตัดออก / โอนระหว่างสาขา</span><span>— แจ้งเตือนสต็อกต่ำเข้า LINE กลุ่มร้าน</span><span>— นำเข้าข้อมูลเดิมจาก Excel (~1,800 รายการ)</span><span>— รายงานสรุปส่งออก Excel / PDF</span></div>
+<span style="color:#5E5C57">ถ้ามีจะดี</span><span>สแกนบาร์โค้ดด้วยมือถือ</span>
+<span style="color:#5E5C57">ไฟล์แนบ</span><span style="font-family:'IBM Plex Mono',monospace;font-size:14px">stock_2026.xlsx</span>
+<span style="color:#5E5C57">งบ / กำหนด</span><span>ไม่เกิน ฿12,000 · ใช้งานได้ภายใน 30 พ.ย. 2026</span>
+</div>
+<div style="background:#F6F3EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#5E5C57">คำถามที่ทีมจะถามเพิ่ม</span><span style="font-size:14px;line-height:1.6">จำนวนพนักงานที่ต้องล็อกอิน · มีเซิร์ฟเวอร์/โดเมนแล้วหรือยัง</span></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="background:#0D0F11;color:#EFECE5;border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:16px">
+<span style="font-size:12px;color:#8B8A85">ขั้นตอนถัดไป</span>
+<span style="font-weight:600;font-size:19px;line-height:1.45;text-wrap:pretty">Strata จะติดต่อกลับพร้อมใบเสนอราคา</span>
+<div style="display:flex;flex-direction:column;gap:12px;font-size:13px;color:#B9B6AE;border-top:1px solid #2C3135;padding-top:16px">
+<div style="display:flex;gap:12px"><span style="font:500 12px 'IBM Plex Mono',monospace;color:#C9AE73">01</span><span>ทีมตรวจ Requirement</span></div>
+<div style="display:flex;gap:12px"><span style="font:500 12px 'IBM Plex Mono',monospace;color:#C9AE73">02</span><span>ติดต่อกลับทาง 089-123-4567 / LINE</span></div>
+<div style="display:flex;gap:12px"><span style="font:500 12px 'IBM Plex Mono',monospace;color:#C9AE73">03</span><span>ส่งใบเสนอราคาให้พิจารณา</span></div>
+</div>
+</div>
+<span style="padding:14px;text-align:center;border-radius:8px;background:#C9AE73;color:#0D0F11;font-weight:600;font-size:15px">ยืนยันและส่งให้ Strata</span>
+<span style="padding:13px;text-align:center;border-radius:8px;border:1px solid #CFCAC0;font-weight:500;font-size:14px">แก้ไขเพิ่มเติมในแชท</span>
+<span style="font-size:13px;color:#5E5C57;text-align:center">ดาวน์โหลด PDF · Markdown</span>
+</div>
+</div>
+</div></div>
+
+<div class="dv-opt" id="1d" data-screen-label="04 Admin Inbox"><div class="dv-olabel"><a class="dv-oid" href="#1d">1d</a>04 · หลังบ้าน — Inbox บทสนทนา (List view)</div>
+<div class="dv-card" style="width:1440px;height:900px;display:flex;font-family:'IBM Plex Sans Thai','IBM Plex Sans',sans-serif">
+<div style="width:240px;flex:none;background:#0D0F11;color:#B9B6AE;display:flex;flex-direction:column;padding:16px 12px;gap:20px">
+<div style="display:flex;align-items:center;gap:10px;padding:4px 8px"><span style="width:26px;height:26px;overflow:hidden;position:relative;border-radius:5px;flex:none"><img src="assets/logo.png" alt="Strata" style="position:absolute;width:78px;height:78px;left:-26px;top:-26px"></span><span style="font-weight:600;font-size:15px;color:#EFECE5">strata</span><span style="margin-left:auto;font:400 10px 'IBM Plex Mono',monospace;color:#6F6D68">ADMIN</span></div>
+<div style="display:flex;flex-direction:column;gap:2px;font-size:14px"><sc-for list="{{ nav4 }}" as="n" hint-placeholder-count="5"><sc-if value="{{ n.active }}"><div style="display:flex;justify-content:space-between;padding:8px 10px;border-radius:6px;background:#22262A;color:#EFECE5"><span>{{ n.label }}</span><span style="font:400 12px 'IBM Plex Mono',monospace;color:#C9AE73">{{ n.count }}</span></div></sc-if><sc-if value="{{ n.idle }}"><div style="display:flex;justify-content:space-between;padding:8px 10px;border-radius:6px"><span>{{ n.label }}</span><span style="font:400 12px 'IBM Plex Mono',monospace;color:#6F6D68">{{ n.count }}</span></div></sc-if></sc-for></div>
+<div style="display:flex;flex-direction:column;gap:2px;font-size:13px"><span style="font:500 10px 'IBM Plex Mono',monospace;color:#6F6D68;letter-spacing:.08em;padding:0 10px 6px">ช่องทางที่มา</span><sc-for list="{{ sources }}" as="s" hint-placeholder-count="4"><div style="display:flex;justify-content:space-between;padding:6px 10px"><span>{{ s.name }}</span><span style="font:400 12px 'IBM Plex Mono',monospace;color:#6F6D68">{{ s.count }}</span></div></sc-for></div>
+<div style="margin-top:auto;background:#16191C;border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:8px"><div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#EFECE5"><span style="width:6px;height:6px;background:#5FA37E;border-radius:50%"></span>AI ออนไลน์</div><span style="font:400 11px 'IBM Plex Mono',monospace;color:#6F6D68">ollama/qwen2.5:14b · fallback gemini-flash</span></div>
+</div>
+<div style="flex:1;min-width:0;background:#fff;display:flex;flex-direction:column">
+<div style="padding:18px 28px 0;border-bottom:1px solid #EEEBE4;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;justify-content:space-between;align-items:center"><div style="display:flex;align-items:center;gap:12px"><span style="width:28px;height:28px;border-radius:6px;background:#F1ECDF;display:flex;align-items:center;justify-content:center"><span style="width:8px;height:8px;background:#C9AE73"></span></span><span style="font-weight:600;font-size:20px">บทสนทนาทั้งหมด</span></div><div style="display:flex;gap:10px;align-items:center"><span style="padding:7px 12px;border:1px solid #E4E1DA;border-radius:6px;font-size:13px;color:#8B8A85;width:220px">ค้นหาลูกค้า, รหัส, คำสำคัญ</span><span style="width:30px;height:30px;border-radius:50%;background:#0D0F11;color:#C9AE73;font:600 12px 'IBM Plex Mono',monospace;display:flex;align-items:center;justify-content:center">CS</span></div></div>
+<div style="display:flex;gap:24px;font-size:14px"><span style="padding-bottom:10px;border-bottom:2px solid #0D0F11;font-weight:600">รายการ</span><span style="padding-bottom:10px;color:#5E5C57">บอร์ด</span><span style="padding-bottom:10px;color:#5E5C57">ปฏิทิน</span><span style="padding-bottom:10px;color:#5E5C57">สรุปภาพรวม</span></div>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:12px 28px;border-bottom:1px solid #EEEBE4">
+<div style="display:flex;gap:8px;font-size:13px;flex:none;white-space:nowrap"><span style="padding:6px 12px;background:#0D0F11;color:#EFECE5;border-radius:6px;font-weight:500">+ เพิ่มบทสนทนา</span><span style="padding:6px 12px;border:1px solid #E4E1DA;border-radius:6px">ช่องทาง: ทั้งหมด</span><span style="padding:6px 12px;border:1px solid #E4E1DA;border-radius:6px">หมวด: ทั้งหมด</span><span style="padding:6px 12px;border:1px solid #E4E1DA;border-radius:6px">6 เดือนล่าสุด</span></div>
+<div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#6E5726;background:#F6F1E4;flex:none;white-space:nowrap;padding:6px 12px;border-radius:6px"><span style="width:6px;height:6px;background:#C9AE73"></span>3 รายการจะย้ายเข้าคลังภายใน 7 วัน</div>
+</div>
+<div style="display:grid;grid-template-columns:minmax(0,1fr) 110px 140px 96px 120px 100px 130px;gap:0 16px;padding:8px 28px;font-size:12px;color:#5E5C57;border-bottom:1px solid #EEEBE4"><span>ลูกค้า / หัวข้อ</span><span>ช่องทาง</span><span>หมวดบริการ</span><span>งบ</span><span>ความครบ</span><span>อัปเดต</span><span>แสดงถึง</span></div>
+<div style="flex:1;overflow:hidden">
+<sc-for list="{{ groups }}" as="g" hint-placeholder-count="4"><div>
+<div style="display:flex;align-items:center;gap:10px;padding:10px 28px 4px"><span style="font-size:11px;color:#5E5C57">▾</span><span style="width:8px;height:8px;border-radius:2px;background:{{ g.color }}"></span><span style="font-weight:600;font-size:14px">{{ g.name }}</span><span style="font:400 12px 'IBM Plex Mono',monospace;color:#8B8A85">{{ g.count }}</span><sc-if value="{{ g.note }}"><span style="font-size:12px;color:#8B8A85">— {{ g.note }}</span></sc-if></div>
+<sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="2"><div style="display:grid;grid-template-columns:minmax(0,1fr) 110px 140px 96px 120px 100px 130px;gap:0 16px;align-items:center;padding:6px 28px;border-bottom:1px solid #F3F1EC;font-size:13px;opacity:{{ r.opacity }}">
+<div style="display:flex;align-items:center;gap:12px;min-width:0"><span style="font:400 11px 'IBM Plex Mono',monospace;color:#8B8A85;flex:none">{{ r.id }}</span><div style="display:flex;flex-direction:column;min-width:0"><span style="font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.name }}</span><span style="font-size:12px;color:#5E5C57;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.topic }}</span></div></div>
+<span><span style="font-size:12px;padding:2px 8px;border-radius:4px;background:#F3F1EC">{{ r.source }}</span></span>
+<span style="color:#3A3935">{{ r.service }}</span>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px">{{ r.budget }}</span>
+<div style="display:flex;align-items:center;gap:8px"><div style="flex:1;height:4px;background:#EEEBE4;border-radius:2px;overflow:hidden"><div style="height:4px;background:#0D0F11;width:{{ r.pct }}%"></div></div><span style="font:400 11px 'IBM Plex Mono',monospace;color:#5E5C57;width:30px">{{ r.pct }}%</span></div>
+<span style="color:#5E5C57;font-size:12px">{{ r.updated }}</span>
+<sc-if value="{{ r.warn }}"><span style="font-size:12px;color:#8A4A2E;font-weight:500">{{ r.expires }}</span></sc-if><sc-if value="{{ r.ok }}"><span style="font-size:12px;color:#5E5C57">{{ r.expires }}</span></sc-if>
+</div></sc-for>
+</div></sc-for>
+</div>
+</div>
+</div></div>
+
+<div class="dv-opt" id="1e" data-screen-label="05 Admin Detail"><div class="dv-olabel"><a class="dv-oid" href="#1e">1e</a>05 · หลังบ้าน — รายละเอียดบทสนทนา + Requirement</div>
+<div class="dv-card" style="width:1440px;height:900px;display:flex;font-family:'IBM Plex Sans Thai','IBM Plex Sans',sans-serif">
+<div style="width:240px;flex:none;background:#0D0F11;color:#B9B6AE;display:flex;flex-direction:column;padding:16px 12px;gap:20px">
+<div style="display:flex;align-items:center;gap:10px;padding:4px 8px"><span style="width:26px;height:26px;overflow:hidden;position:relative;border-radius:5px;flex:none"><img src="assets/logo.png" alt="Strata" style="position:absolute;width:78px;height:78px;left:-26px;top:-26px"></span><span style="font-weight:600;font-size:15px;color:#EFECE5">strata</span><span style="margin-left:auto;font:400 10px 'IBM Plex Mono',monospace;color:#6F6D68">ADMIN</span></div>
+<div style="display:flex;flex-direction:column;gap:2px;font-size:14px"><sc-for list="{{ nav4 }}" as="n" hint-placeholder-count="5"><sc-if value="{{ n.active }}"><div style="display:flex;justify-content:space-between;padding:8px 10px;border-radius:6px;background:#22262A;color:#EFECE5"><span>{{ n.label }}</span><span style="font:400 12px 'IBM Plex Mono',monospace;color:#C9AE73">{{ n.count }}</span></div></sc-if><sc-if value="{{ n.idle }}"><div style="display:flex;justify-content:space-between;padding:8px 10px;border-radius:6px"><span>{{ n.label }}</span><span style="font:400 12px 'IBM Plex Mono',monospace;color:#6F6D68">{{ n.count }}</span></div></sc-if></sc-for></div>
+</div>
+<div style="flex:1;min-width:0;background:#FAF9F6;display:flex;flex-direction:column">
+<div style="padding:14px 28px;border-bottom:1px solid #EEEBE4;background:#fff;display:flex;justify-content:space-between;align-items:center">
+<div style="display:flex;align-items:center;gap:12px;font-size:13px;color:#5E5C57"><span>บทสนทนาทั้งหมด</span><span>/</span><span style="font-family:'IBM Plex Mono',monospace">S-0142</span><span style="color:#0D0F11;font-weight:600;font-size:15px">ร้าน PC Parts ร้อยเอ็ด</span><span style="font-size:12px;padding:2px 8px;border-radius:4px;background:#F3F1EC;color:#0D0F11">Fastwork</span></div>
+<div style="display:flex;gap:8px;font-size:13px"><span style="padding:7px 12px;border:1px solid #E4E1DA;border-radius:6px">สถานะ: ใหม่ ▾</span><span style="padding:7px 14px;background:#0D0F11;color:#EFECE5;border-radius:6px;font-weight:500">รับช่วงต่อจาก AI</span></div>
+</div>
+<div style="flex:1;overflow:hidden;padding:24px 48px;display:flex;flex-direction:column;gap:14px;justify-content:flex-end">
+<div style="align-self:center;font:400 11px 'IBM Plex Mono',monospace;color:#8B8A85">23 ต.ค. 2026 · 14:12 เริ่มแชทจาก fastwork.com · IP 49.237.x.x</div>
+<sc-for list="{{ adminMsgs }}" as="m" hint-placeholder-count="6">
+<sc-if value="{{ m.isAi }}"><div style="display:flex;gap:10px;max-width:560px"><span style="width:24px;height:24px;border-radius:5px;background:#0D0F11;display:flex;align-items:center;justify-content:center;flex:none"><span style="width:7px;height:7px;background:#C9AE73"></span></span><div style="display:flex;flex-direction:column;gap:2px"><span style="font:500 10px 'IBM Plex Mono',monospace;color:#5E5C57">AI · {{ m.time }}</span><div style="font-size:14px;line-height:1.6">{{ m.text }}</div></div></div></sc-if>
+<sc-if value="{{ m.isUser }}"><div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;align-self:flex-end;max-width:480px"><sc-if value="{{ m.file }}"><span style="font:500 12px 'IBM Plex Mono',monospace;padding:8px 12px;background:#fff;border:1px solid #E4E1DA;border-radius:8px">📎 {{ m.file }}</span></sc-if><sc-if value="{{ m.text }}"><div style="padding:10px 14px;background:#fff;border:1px solid #E4E1DA;border-radius:10px 10px 2px 10px;font-size:14px;line-height:1.55">{{ m.text }}</div></sc-if><span style="font:400 10px 'IBM Plex Mono',monospace;color:#8B8A85">ลูกค้า · {{ m.time }}</span></div></sc-if>
+</sc-for>
+</div>
+<div style="padding:0 48px 20px"><div style="background:#fff;border:1px solid #D8D4CB;border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:12px"><span style="font:500 11px 'IBM Plex Mono',monospace;padding:3px 8px;border-radius:4px;background:#F1ECDF;color:#6E5726">ตอบในนาม Strata</span><span style="flex:1;font-size:14px;color:#8B8A85">พิมพ์เพื่อตอบลูกค้าโดยตรง (AI จะหยุดตอบ)</span><span style="font-size:13px;color:#5E5C57">โน้ตภายใน</span></div></div>
+</div>
+<div style="width:380px;flex:none;border-left:1px solid #EEEBE4;background:#fff;display:flex;flex-direction:column;overflow:hidden">
+<div style="padding:20px 24px;border-bottom:1px solid #EEEBE4;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-weight:600;font-size:15px">Requirement</span><span style="font-size:13px;color:#8A6F35">ดูฉบับเต็ม ↗</span></div>
+<div style="display:grid;grid-template-columns:96px 1fr;row-gap:10px;font-size:13px;line-height:1.5"><span style="color:#5E5C57">หมวด</span><span>Software &amp; Web</span><span style="color:#5E5C57">งาน</span><span>ระบบสต็อก 2 สาขา + LINE</span><span style="color:#5E5C57">งบ</span><span style="font-family:'IBM Plex Mono',monospace">≤ ฿12,000</span><span style="color:#5E5C57">กำหนด</span><span>30 พ.ย. 2026</span><span style="color:#5E5C57">ติดต่อ</span><span>คุณสมชาย · 089-123-4567<br>LINE @pcparts101</span><span style="color:#5E5C57">ใบเสนอราคา</span><span style="color:#8A4A2E;font-weight:500">ยังไม่ส่ง</span><span style="color:#5E5C57">ลูกค้ายืนยัน</span><span style="color:#2F6B4A;font-weight:500">ยืนยันแล้ว 14:33</span></div>
+</div>
+<div style="padding:20px 24px;border-bottom:1px solid #EEEBE4;display:flex;flex-direction:column;gap:10px">
+<span style="font-weight:600;font-size:14px">การเก็บข้อมูล</span>
+<div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:#5E5C57">แสดงบนเว็บถึง</span><span style="font-family:'IBM Plex Mono',monospace">23 เม.ย. 2027</span></div>
+<div style="height:4px;background:#EEEBE4;border-radius:2px"><div style="height:4px;width:2%;background:#C9AE73;border-radius:2px"></div></div>
+<div style="display:flex;justify-content:space-between;font-size:12px;color:#5E5C57"><span>เหลือ 182 วัน · นับจากกิจกรรมล่าสุด</span><span style="color:#0D0F11;font-weight:500">ปักหมุด</span></div>
+</div>
+<div style="padding:20px 24px;display:flex;flex-direction:column;gap:12px;flex:1">
+<div style="display:flex;justify-content:space-between"><span style="font-weight:600;font-size:14px">กิจกรรม</span><span style="font-size:12px;color:#8A6F35">Audit log ↗</span></div>
+<sc-for list="{{ miniLog }}" as="l" hint-placeholder-count="5"><div style="display:flex;gap:12px;font-size:12px"><span style="font-family:'IBM Plex Mono',monospace;color:#8B8A85;width:40px;flex:none">{{ l.t }}</span><span style="font-family:'IBM Plex Mono',monospace;color:#0D0F11">{{ l.e }}</span></div></sc-for>
+</div>
+</div>
+</div></div>
+
+<div class="dv-opt" id="1f" data-screen-label="06 Audit Log"><div class="dv-olabel"><a class="dv-oid" href="#1f">1f</a>06 · หลังบ้าน — Audit log + นโยบายเก็บข้อมูล</div>
+<div class="dv-card" style="width:1440px;height:900px;display:flex;font-family:'IBM Plex Sans Thai','IBM Plex Sans',sans-serif">
+<div style="width:240px;flex:none;background:#0D0F11;color:#B9B6AE;display:flex;flex-direction:column;padding:16px 12px;gap:20px">
+<div style="display:flex;align-items:center;gap:10px;padding:4px 8px"><span style="width:26px;height:26px;overflow:hidden;position:relative;border-radius:5px;flex:none"><img src="assets/logo.png" alt="Strata" style="position:absolute;width:78px;height:78px;left:-26px;top:-26px"></span><span style="font-weight:600;font-size:15px;color:#EFECE5">strata</span><span style="margin-left:auto;font:400 10px 'IBM Plex Mono',monospace;color:#6F6D68">ADMIN</span></div>
+<div style="display:flex;flex-direction:column;gap:2px;font-size:14px"><sc-for list="{{ nav6 }}" as="n" hint-placeholder-count="5"><sc-if value="{{ n.active }}"><div style="display:flex;justify-content:space-between;padding:8px 10px;border-radius:6px;background:#22262A;color:#EFECE5"><span>{{ n.label }}</span><span style="font:400 12px 'IBM Plex Mono',monospace;color:#C9AE73">{{ n.count }}</span></div></sc-if><sc-if value="{{ n.idle }}"><div style="display:flex;justify-content:space-between;padding:8px 10px;border-radius:6px"><span>{{ n.label }}</span><span style="font:400 12px 'IBM Plex Mono',monospace;color:#6F6D68">{{ n.count }}</span></div></sc-if></sc-for></div>
+</div>
+<div style="flex:1;min-width:0;background:#fff;display:flex;flex-direction:column">
+<div style="padding:18px 28px 0;border-bottom:1px solid #EEEBE4;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:600;font-size:20px">Audit log</span><span style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:#5E5C57">append-only · 48,213 เหตุการณ์ · ไม่มีการลบ</span></div>
+<div style="display:flex;gap:24px;font-size:14px"><span style="padding-bottom:10px;border-bottom:2px solid #0D0F11;font-weight:600">เหตุการณ์ทั้งหมด</span><span style="padding-bottom:10px;color:#5E5C57">คลังบทสนทนา (Archive)</span><span style="padding-bottom:10px;color:#5E5C57">การเข้าสู่ระบบ</span></div>
+</div>
+<div style="display:flex;gap:8px;padding:12px 28px;border-bottom:1px solid #EEEBE4;font-size:13px;white-space:nowrap"><span style="padding:6px 12px;border:1px solid #E4E1DA;border-radius:6px;width:240px;color:#8B8A85">ค้นหา event, รหัส, IP</span><span style="padding:6px 12px;border:1px solid #E4E1DA;border-radius:6px">ผู้กระทำ: ทั้งหมด</span><span style="padding:6px 12px;border:1px solid #E4E1DA;border-radius:6px">22–23 ต.ค. 2026</span><span style="margin-left:auto;padding:6px 12px;border:1px solid #E4E1DA;border-radius:6px">ส่งออก CSV</span></div>
+<div style="display:grid;grid-template-columns:150px 80px 190px 80px 120px minmax(0,1fr);gap:0 16px;padding:8px 28px;font-size:12px;color:#5E5C57;border-bottom:1px solid #EEEBE4"><span>เวลา</span><span>ผู้กระทำ</span><span>เหตุการณ์</span><span>อ้างอิง</span><span>IP</span><span>รายละเอียด</span></div>
+<div style="flex:1;overflow:hidden">
+<sc-for list="{{ logs }}" as="l" hint-placeholder-count="10"><div style="display:grid;grid-template-columns:150px 80px 190px 80px 120px minmax(0,1fr);gap:0 16px;padding:11px 28px;border-bottom:1px solid #F3F1EC;font:400 12px 'IBM Plex Mono',monospace;align-items:center">
+<span style="color:#5E5C57">{{ l.time }}</span><span>{{ l.actor }}</span>
+<sc-if value="{{ l.danger }}"><span style="color:#A13D2D;font-weight:500">{{ l.event }}</span></sc-if><sc-if value="{{ l.normal }}"><span style="font-weight:500">{{ l.event }}</span></sc-if>
+<span style="color:#5E5C57">{{ l.ref }}</span><span style="color:#5E5C57">{{ l.ip }}</span><span style="font-family:'IBM Plex Sans Thai','IBM Plex Sans',sans-serif;font-size:13px;color:#3A3935;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ l.detail }}</span>
+</div></sc-for>
+</div>
+</div>
+<div style="width:340px;flex:none;border-left:1px solid #EEEBE4;background:#FAF9F6;padding:24px;display:flex;flex-direction:column;gap:20px">
+<span style="font-weight:600;font-size:15px">นโยบายเก็บข้อมูล</span>
+<div style="background:#fff;border:1px solid #EEEBE4;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px">แสดงแชทบนหน้าเว็บ</span><span style="font:500 13px 'IBM Plex Mono',monospace;padding:4px 10px;border:1px solid #E4E1DA;border-radius:6px">6 เดือน ▾</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px">แจ้งเตือนก่อนหมดอายุ</span><span style="font:500 13px 'IBM Plex Mono',monospace;padding:4px 10px;border:1px solid #E4E1DA;border-radius:6px">7 วัน ▾</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px">เมื่อครบกำหนด</span><span style="font-size:13px;color:#5E5C57">ย้ายเข้าคลัง</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px">Audit log</span><span style="font-size:13px;color:#5E5C57">เก็บถาวร · ลบไม่ได้</span></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<span style="font-size:12px;color:#5E5C57">สถานะข้อมูล</span>
+<div style="display:flex;height:8px;border-radius:2px;overflow:hidden;gap:2px"><div style="flex:126;background:#0D0F11"></div><div style="flex:3;background:#C9AE73"></div><div style="flex:58;background:#D8D4CB"></div></div>
+<div style="display:flex;flex-direction:column;gap:6px;font-size:13px">
+<div style="display:flex;justify-content:space-between"><span style="display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;background:#0D0F11"></span>แสดงบนเว็บ</span><span style="font-family:'IBM Plex Mono',monospace">126</span></div>
+<div style="display:flex;justify-content:space-between"><span style="display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;background:#C9AE73"></span>ใกล้หมดอายุ</span><span style="font-family:'IBM Plex Mono',monospace">3</span></div>
+<div style="display:flex;justify-content:space-between"><span style="display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;background:#D8D4CB"></span>ในคลัง (ซ่อนจากเว็บ)</span><span style="font-family:'IBM Plex Mono',monospace">58</span></div>
+</div>
+</div>
+<div style="margin-top:auto;font-size:12px;line-height:1.6;color:#5E5C57;text-wrap:pretty">Cron รันทุกวัน 03:00 ย้ายบทสนทนาที่ไม่มีกิจกรรมเกิน 180 วันเข้าคลัง — ทุกครั้งบันทึกเป็น <span style="font-family:'IBM Plex Mono',monospace;color:#0D0F11">chat.archived</span></div>
+</div>
+</div></div>
+
+</div>
+<p class="dv-next">ลองต่อ: "ทำ <a class="dv-oid" href="#1d">1d</a> เป็นมุมมองบอร์ด" · "<a class="dv-oid" href="#1a">1a</a> เวอร์ชันพื้นสว่าง" · "ทำ <a class="dv-oid" href="#1b">1b</a> เป็นแชทที่ใช้งานได้จริง"</p>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;chatProgress&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:13,&quot;min&quot;:1,&quot;max&quot;:13,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;02 แชท&quot;},&quot;showArchived&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;04 Inbox&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const step = Math.max(1, Math.min(13, this.props.chatProgress ?? 13));
+    const showArchived = this.props.showArchived ?? true;
+    const msgs = [
+      { r: 'ai', t: '14:12', x: 'สวัสดีครับ ผม Strata AI จะช่วยเก็บรายละเอียดโปรเจกต์ก่อนส่งให้ทีมประเมินราคา เล่าคร่าวๆ ได้เลยครับว่าอยากทำอะไร' },
+      { r: 'u', t: '14:13', x: 'อยากได้ระบบเช็คสต็อกร้านอะไหล่คอม มี 2 สาขา ตอนนี้ใช้ Excel อยู่' },
+      { r: 'ai', t: '14:13', x: 'เข้าใจครับ ย้ายจาก Excel มาเป็นระบบออนไลน์ — ใครจะใช้งานบ้าง และแต่ละคนทำอะไรได้บ้างครับ?' },
+      { r: 'u', t: '14:15', x: 'เจ้าของดูได้ทุกอย่าง พนักงานแต่ละสาขารับเข้า/ตัดออกได้อย่างเดียว' },
+      { r: 'ai', t: '14:15', x: 'ได้ครับ แบ่งสิทธิ์ 2 ระดับ ต้องการแจ้งเตือนเมื่อของใกล้หมดไหมครับ? เช่น ส่งเข้า LINE' },
+      { r: 'u', t: '14:18', x: 'เอาครับ แจ้งเข้า LINE กลุ่มร้าน แล้วอยากดึงข้อมูลจาก Excel เดิมเข้าไปด้วย' },
+      { r: 'ai', t: '14:18', x: 'รับทราบครับ มีไฟล์ Excel ตัวอย่างไหม? แนบมาได้เลย จะช่วยประเมินการย้ายข้อมูลได้แม่นขึ้น' },
+      { r: 'u', t: '14:29', x: '', f: 'stock_2026.xlsx' },
+      { r: 'ai', t: '14:29', x: 'ขอบคุณครับ พบประมาณ 1,800 รายการ 6 คอลัมน์ งบประมาณและกำหนดใช้งานประมาณไหนครับ?' },
+      { r: 'u', t: '14:31', x: 'งบไม่เกิน 12,000 อยากใช้ก่อนสิ้นเดือนหน้า' },
+      { r: 'ai', t: '14:31', x: 'รับทราบครับ ขอช่องทางติดต่อกลับด้วยครับ — ชื่อผู้ติดต่อ เบอร์โทร และ LINE หรืออีเมล' },
+      { r: 'u', t: '14:32', x: 'คุณสมชาย · 089-123-4567 · LINE @pcparts101' },
+      { r: 'ai', t: '14:32', x: 'รับทราบครับ สรุป Requirement ไว้ด้านขวาแล้ว ตรวจและกดยืนยันได้เลย ทาง Strata จะติดต่อกลับไปพร้อมใบเสนอราคาครับ' }
+    ].map(m => ({ isAi: m.r === 'ai', isUser: m.r === 'u', text: m.x, time: m.t, file: m.f || '' }));
+    const fields = [
+      ['ประเภทงาน', 'ระบบสต็อกสินค้า · Software & Web', 2],
+      ['ผู้ใช้และสิทธิ์', 'เจ้าของ (ทั้งหมด) · พนักงาน 2 สาขา (รับเข้า/ตัดออก)', 4],
+      ['ฟีเจอร์หลัก', 'แจ้งเตือนสต็อกต่ำเข้า LINE · นำเข้าข้อมูลจาก Excel', 6],
+      ['ไฟล์อ้างอิง', 'stock_2026.xlsx — ~1,800 รายการ', 9],
+      ['งบประมาณ', 'ไม่เกิน ฿12,000', 10],
+      ['กำหนดใช้งาน', 'ภายใน 30 พ.ย. 2026', 10],
+      ['ข้อมูลติดต่อ', 'คุณสมชาย · 089-123-4567 · LINE @pcparts101', 12]
+    ].map(([label, value, at]) => ({ label, value, done: step >= at, pending: step < at }));
+    const filled = fields.filter(f => f.done).length;
+    const navItems = [['หน้าหลัก', ''], ['บทสนทนา', '129'], ['Requirement', '41'], ['ลูกค้า', '96'], ['Audit log', ''], ['ตั้งค่า', '']];
+    const nav = active => navItems.map(([label, count]) => ({ label, count, active: label === active, idle: label !== active }));
+    const row = (id, name, topic, source, service, budget, pct, updated, expires, warn, archived) => ({ id, name, topic, source, service, budget, pct, updated, expires, warn: !!warn, ok: !warn, opacity: archived ? 0.45 : 1 });
+    const groups = [
+      { name: 'ใหม่', color: '#C9AE73', rows: [
+        row('S-0142', 'ร้าน PC Parts ร้อยเอ็ด', 'ระบบสต็อก 2 สาขา + LINE', 'Fastwork', 'Software & Web', '฿12,000', 100, '2 นาที', '23 เม.ย. 2027'),
+        row('S-0141', 'คุณมินตรา', 'สไลด์นำเสนอผลงานบริษัท 20 หน้า', 'Facebook', 'PowerPoint', '฿1,500', 64, '18 นาที', '23 เม.ย. 2027')] },
+      { name: 'กำลังคุย', color: '#3D5F8A', rows: [
+        row('S-0138', 'คุณธนา', 'LINE bot ตอบลูกค้าอัตโนมัติ', 'Facebook', 'AI Automation', '฿6,000', 78, 'เมื่อวาน', '22 เม.ย. 2027'),
+        row('S-0137', 'Studio Nine', 'Motion intro โลโก้ 10 วินาที', 'ตรง', 'After Effects', '฿4,500', 55, '2 วัน', '21 เม.ย. 2027')] },
+      { name: 'สรุปแล้ว · รอเสนอราคา', color: '#3F7A5A', rows: [
+        row('S-0131', 'หอพักบ้านสวน', 'ระบบหอพัก บิลค่าน้ำไฟ', 'Fastwork', 'Software & Web', '฿10,000', 100, '22 ต.ค.', '22 เม.ย. 2027'),
+        row('S-0129', 'คุณวรพล', 'แก้บั๊กระบบ Laravel หน้าชำระเงิน', 'Facebook', 'แก้ไขโค้ด', '฿3,000', 100, '22 ต.ค.', '22 เม.ย. 2027'),
+        row('S-0102', 'คุณปวีณา', 'Dashboard ยอดขายรายเดือน', 'Facebook', 'Excel', '฿2,000', 100, '29 เม.ย.', 'อีก 6 วัน', true)] },
+      { name: 'ปิดงาน', color: '#5E5C57', rows: [
+        row('S-0098', 'ร้านกาแฟ Slow Bar', 'เว็บร้าน 5 หน้า', 'Fastwork', 'Software & Web', '฿1,500', 100, '28 เม.ย.', 'อีก 5 วัน', true)] }
+    ];
+    if (showArchived) groups.push({ name: 'คลัง', color: '#D8D4CB', note: 'เกิน 6 เดือน · ซ่อนจากหน้าเว็บ ดูได้ใน Audit log', rows: [
+      row('S-0071', 'คุณสมชาย', 'รายงานวิจัย จัดรูปเล่ม', 'Facebook', 'เอกสาร', '฿900', 100, '19 เม.ย.', 'ย้ายแล้ว', false, true)] });
+    groups.forEach(g => g.count = g.rows.length);
+    const L = (time, actor, event, ref, ip, detail, danger) => ({ time, actor, event, ref, ip, detail, danger: !!danger, normal: !danger });
+    return {
+      services: [
+        ['Software & Web', 'เว็บไซต์ ระบบหลังบ้าน ฐานข้อมูล'], ['AI & Automation', 'Chatbot, workflow, เชื่อม LINE / API'],
+        ['แก้ไขโค้ด', 'Debug, เพิ่มฟีเจอร์, ย้ายระบบ'], ['IT Service', 'เครือข่าย เซิร์ฟเวอร์ Cloud'],
+        ['เอกสาร', 'Word, จัดรูปเล่ม, รายงาน'], ['PowerPoint', 'สไลด์นำเสนอ, Pitch deck'],
+        ['Excel', 'สูตร, Dashboard, Macro'], ['CapCut', 'ตัดต่อคลิป, Reels, TikTok'],
+        ['After Effects', 'Motion graphic, Intro']
+      ].map(([name, desc], i) => ({ name, desc, no: String(i + 1).padStart(2, '0') })),
+      chatMsgs: msgs.slice(Math.max(0, step - 7), step),
+      adminMsgs: msgs.slice(3),
+      reqFields: fields, reqFilled: filled, reqPct: Math.round(filled / 7 * 100),
+      nav4: nav('บทสนทนา'), nav6: nav('Audit log'),
+      sources: [{ name: 'Fastwork', count: 48 }, { name: 'Facebook', count: 57 }, { name: 'Google', count: 14 }, { name: 'เข้าเว็บตรง', count: 10 }],
+      groups,
+      miniLog: [{ t: '14:33', e: 'requirement.confirmed' }, { t: '14:32', e: 'requirement.generated' }, { t: '14:29', e: 'file.uploaded' }, { t: '14:12', e: 'chat.started' }, { t: '14:36', e: 'admin.viewed · CS' }],
+      logs: [
+        L('2026-10-23 14:36:02', 'admin', 'admin.viewed', 'S-0142', '1.20.x.x', 'เปิดดูบทสนทนา'),
+        L('2026-10-23 14:33:10', 'ลูกค้า', 'requirement.confirmed', 'S-0142', '49.237.x.x', 'ยืนยัน Requirement v1'),
+        L('2026-10-23 14:32:08', 'AI', 'requirement.generated', 'S-0142', '—', '7/7 หัวข้อ · ollama/qwen2.5:14b'),
+        L('2026-10-23 14:29:12', 'ลูกค้า', 'file.uploaded', 'S-0142', '49.237.x.x', 'stock_2026.xlsx · 1.2 MB'),
+        L('2026-10-23 14:12:40', 'ลูกค้า', 'chat.started', 'S-0142', '49.237.x.x', 'src=fastwork'),
+        L('2026-10-23 13:57:41', 'admin', 'login.success', '—', '1.20.x.x', 'Chrome · macOS'),
+        L('2026-10-23 03:00:00', 'system', 'chat.archived', 'S-0071', '—', 'ไม่มีกิจกรรม 187 วัน → ย้ายเข้าคลัง'),
+        L('2026-10-23 03:00:00', 'system', 'retention.notice', 'S-0098', '—', 'แจ้งเตือน: หมดอายุใน 5 วัน'),
+        L('2026-10-22 21:14:19', 'admin', 'status.changed', 'S-0131', '1.20.x.x', 'กำลังคุย → สรุปแล้ว'),
+        L('2026-10-22 20:02:11', 'admin', 'admin.takeover', 'S-0129', '1.20.x.x', 'รับช่วงต่อจาก AI'),
+        L('2026-10-22 18:40:57', 'unknown', 'login.failed', '—', '101.108.x.x', 'รหัสผ่านไม่ถูกต้อง (3 ครั้ง)', true),
+        L('2026-10-22 09:15:30', 'admin', 'settings.changed', 'ai.model', '1.20.x.x', 'gemini-flash → ollama/qwen2.5:14b'),
+        L('2026-10-22 08:44:03', 'AI', 'ai.fallback', 'S-0127', '—', 'ollama timeout → gemini-flash', true)
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
