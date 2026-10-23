@@ -15,8 +15,8 @@ GEMINI_API_KEY=xxx GROQ_API_KEY=yyy bash install.sh https://strata.itdev.in.th
 
 ```bash
 apt update && apt install -y postgresql
-sudo -u postgres psql -c "create user strata with password 'change-me';"
-sudo -u postgres psql -c "create database strata owner strata;"
+runuser -u postgres -- psql -c "create user strata with password 'change-me';"
+runuser -u postgres -- psql -c "create database strata owner strata;"
 
 git clone https://github.com/chakkrit4456/strata-service.git /var/www/strata
 cd /var/www/strata

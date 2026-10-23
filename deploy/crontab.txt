@@ -1,3 +1,3 @@
 # crontab -e (ผู้ใช้ที่รันแอป)
 15 3 * * * cd /var/www/strata && npm run retention >> /var/log/strata-retention.log 2>&1
-30 3 * * * sudo -u postgres pg_dump strata | gzip > /var/backups/strata-$(date +\%F).sql.gz
+30 3 * * * runuser -u postgres -- pg_dump strata | gzip > /var/backups/strata-$(date +\%F).sql.gz

@@ -28,6 +28,7 @@ set_env() {
   rm -f "$tmp"
 }
 get_env() { grep "^$1=" .env | head -1 | cut -d= -f2- || true; }
+as_postgres() { runuser -u postgres -- "$@"; }
 
 [ "$(id -u)" -eq 0 ] || { echo "กรุณารันด้วย root"; exit 1; }
 
@@ -55,7 +56,11 @@ cd "$APP_DIR"
 FIRST_INSTALL=0
 if [ ! -f .env ]; then
   FIRST_INSTALL=1
-  cp .env.example .env
+  if [ -f .env.example ]; then
+    cp .env.example .env
+  else
+    : > .env
+  fi
   chmod 600 .env
 fi
 
@@ -64,13 +69,13 @@ DB_PASS=$(get_env DATABASE_URL | sed -n 's|^postgres://[^:]*:\([^@]*\)@.*|\1|p')
 if [ -z "$DB_PASS" ] || [ "$DB_PASS" = "change-me" ]; then
   DB_PASS=$(rand 24)
 fi
-if sudo -u postgres psql -tAc "select 1 from pg_roles where rolname='$DB_USER'" | grep -q 1; then
-  sudo -u postgres psql -qc "alter user $DB_USER with password '$DB_PASS';"
+if as_postgres psql -tAc "select 1 from pg_roles where rolname='$DB_USER'" | grep -q 1; then
+  as_postgres psql -qc "alter user $DB_USER with password '$DB_PASS';"
 else
-  sudo -u postgres psql -qc "create user $DB_USER with password '$DB_PASS';"
+  as_postgres psql -qc "create user $DB_USER with password '$DB_PASS';"
 fi
-if ! sudo -u postgres psql -tAc "select 1 from pg_database where datname='$DB_NAME'" | grep -q 1; then
-  sudo -u postgres psql -qc "create database $DB_NAME owner $DB_USER;"
+if ! as_postgres psql -tAc "select 1 from pg_database where datname='$DB_NAME'" | grep -q 1; then
+  as_postgres psql -qc "create database $DB_NAME owner $DB_USER;"
 fi
 set_env DATABASE_URL "postgres://$DB_USER:$DB_PASS@127.0.0.1:5432/$DB_NAME"
 
@@ -117,7 +122,7 @@ mkdir -p /var/backups/strata
 CRON_TAG="# strata"
 ( crontab -l 2>/dev/null | grep -v "$CRON_TAG" || true
   echo "15 3 * * * cd $APP_DIR && npm run retention >> /var/log/strata-retention.log 2>&1 $CRON_TAG"
-  echo "30 3 * * * sudo -u postgres pg_dump $DB_NAME | gzip > /var/backups/strata/strata-\$(date +\\%F).sql.gz $CRON_TAG"
+  echo "30 3 * * * runuser -u postgres -- pg_dump $DB_NAME | gzip > /var/backups/strata/strata-\$(date +\\%F).sql.gz $CRON_TAG"
   echo "0 4 * * * find /var/backups/strata -name '*.sql.gz' -mtime +30 -delete $CRON_TAG"
 ) | crontab -
 
