@@ -37,13 +37,11 @@ export default async function Inbox({ searchParams }: { searchParams: Promise<SP
 
   return (
     <div className="flex min-h-dvh flex-col">
-      <div className="flex flex-col gap-3.5 border-b border-[#EEEBE4] px-4 pt-4.5 md:px-7">
+      <div className="flex flex-col gap-3.5 border-b border-[#e3eaf1] px-4 pt-4.5 md:px-7">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <span className="flex size-7 items-center justify-center rounded-md bg-gold-soft">
-              <span className="size-2 bg-gold" />
-            </span>
-            <h1 className="text-xl font-semibold">บทสนทนาทั้งหมด</h1>
+            <span className="orb size-7" />
+            <h1 className="text-[28px] leading-none font-medium tracking-[-0.04em]">บทสนทนาทั้งหมด</h1>
           </div>
           <form className="flex gap-2">
             {Object.entries(sp)
@@ -72,7 +70,7 @@ export default async function Inbox({ searchParams }: { searchParams: Promise<SP
         </div>
       </div>
 
-      <form className="flex flex-wrap items-center gap-2 border-b border-[#EEEBE4] px-4 py-3 text-[13px] md:px-7">
+      <form className="flex flex-wrap items-center gap-2 border-b border-[#e3eaf1] px-4 py-3 text-[13px] md:px-7">
         {sp.q && <input type="hidden" name="q" value={sp.q} />}
         {sp.view && <input type="hidden" name="view" value={sp.view} />}
         <select name="source" defaultValue={sp.source ?? ""} className="rounded-md border border-sand px-2.5 py-1.5">
@@ -100,7 +98,7 @@ export default async function Inbox({ searchParams }: { searchParams: Promise<SP
           <option value="7">7 วัน</option>
           <option value="30">30 วัน</option>
         </select>
-        <button className="rounded-md bg-ink px-3 py-1.5 text-cream">กรอง</button>
+        <button className="rounded-full bg-ink px-4 py-1.5 text-white">กรอง</button>
         {soon > 0 && (
           <span className="ml-auto flex items-center gap-2 rounded-md bg-gold-soft px-3 py-1.5 text-gold-text">
             <span className="size-1.5 bg-gold" />
@@ -122,7 +120,7 @@ export default async function Inbox({ searchParams }: { searchParams: Promise<SP
                 {STATUS_LABEL[g.s]} <span className="font-mono text-xs text-muted">{g.items.length}</span>
               </div>
               {g.items.map((r) => (
-                <Link key={r.id} href={`/admin/c/${r.id}`} className="flex flex-col gap-2 rounded-lg border border-sand bg-white p-3.5 hover:border-gold">
+                <Link key={r.id} href={`/admin/c/${r.id}`} className="flex flex-col gap-2 rounded-lg border border-sand bg-white p-3.5 transition duration-200 hover:-translate-y-0.5 hover:border-gold hover:shadow-[0_8px_20px_-8px_rgb(26_35_51/0.35)]">
                   <span className="font-mono text-[11px] text-muted">{r.code} · {SOURCE_LABEL[r.source] ?? r.source}</span>
                   <span className="text-sm font-medium">{r.contactName ?? "ไม่ระบุชื่อ"}</span>
                   <span className="line-clamp-2 text-[13px] text-muted">{r.title ?? "—"}</span>
@@ -135,14 +133,14 @@ export default async function Inbox({ searchParams }: { searchParams: Promise<SP
       ) : (
         <div className="overflow-x-auto">
           <div className="min-w-[980px]">
-            <div className="grid grid-cols-[minmax(0,2.2fr)_100px_140px_110px_110px_90px_110px] gap-4 border-b border-[#EEEBE4] px-7 py-2 text-xs text-muted">
+            <div className="grid grid-cols-[minmax(0,2.2fr)_100px_140px_110px_110px_90px_110px] gap-4 border-b border-[#e3eaf1] px-7 py-2 text-xs text-muted">
               <span>ลูกค้า / หัวข้อ</span><span>ช่องทาง</span><span>หมวดบริการ</span><span>งบ</span><span>ความครบ</span><span>อัปเดต</span><span>แสดงถึง</span>
             </div>
             {groups
               .filter((g) => g.items.length)
               .map((g) => (
                 <section key={g.s}>
-                  <div className="flex items-baseline gap-2 border-b border-[#EEEBE4] bg-paper px-7 py-2 text-sm font-semibold">
+                  <div className="flex items-baseline gap-2 border-b border-[#e3eaf1] bg-paper px-7 py-2 text-sm font-semibold">
                     ▾ {STATUS_LABEL[g.s]} <span className="font-mono text-xs font-normal text-muted">{g.items.length}</span>
                   </div>
                   {g.items.map((r) => {
@@ -151,7 +149,7 @@ export default async function Inbox({ searchParams }: { searchParams: Promise<SP
                       <Link
                         key={r.id}
                         href={`/admin/c/${r.id}`}
-                        className="grid grid-cols-[minmax(0,2.2fr)_100px_140px_110px_110px_90px_110px] items-center gap-4 border-b border-[#F3F1EC] px-7 py-3 text-[13px] hover:bg-paper"
+                        className="grid grid-cols-[minmax(0,2.2fr)_100px_140px_110px_110px_90px_110px] items-center gap-4 border-b border-[#edf2f6] px-7 py-3 text-[13px] shadow-[inset_0_0_0_0_#c9ae73] transition-[background-color,box-shadow] duration-200 hover:bg-paper hover:shadow-[inset_3px_0_0_0_#c9ae73]"
                       >
                         <span className="flex min-w-0 items-center gap-3">
                           <span className="font-mono text-[11px] text-muted">{r.code}</span>
@@ -159,7 +157,7 @@ export default async function Inbox({ searchParams }: { searchParams: Promise<SP
                             <span className="font-medium">{r.contactName ?? "ไม่ระบุชื่อ"}</span>
                             <span className="text-muted"> · {r.title ?? "ยังไม่มีหัวข้อ"}</span>
                           </span>
-                          {!r.aiEnabled && <span className="rounded bg-gold px-1.5 font-mono text-[10px] text-ink">ทีมตอบ</span>}
+                          {!r.aiEnabled && <span className="rounded bg-gold px-1.5 font-mono text-[10px] text-white">ทีมตอบ</span>}
                         </span>
                         <span>
                           <span className="rounded bg-gold-soft px-2 py-0.5 font-mono text-[11px] text-gold-text">{SOURCE_LABEL[r.source] ?? r.source}</span>
@@ -187,8 +185,8 @@ export default async function Inbox({ searchParams }: { searchParams: Promise<SP
 function Pct({ pct }: { pct: number }) {
   return (
     <span className="flex items-center gap-2">
-      <span className="h-1 w-14 overflow-hidden rounded-sm bg-[#EEEBE4]">
-        <span className="block h-1 bg-gold" style={{ width: `${pct}%` }} />
+      <span className="h-1 w-14 overflow-hidden rounded-sm bg-[#e3eaf1]">
+        <span className="block h-1 bg-gold transition-all duration-500" style={{ width: `${pct}%` }} />
       </span>
       <span className="font-mono text-[11px]">{pct}%</span>
     </span>

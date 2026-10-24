@@ -1,7 +1,7 @@
-// ตัว S แบบบล็อก + จุดทอง
+// ตัว S แบบบล็อก + จุดทอง (ใช้ในพื้นที่แคบ)
 export function LogoMark({ size = 32, dark = true }: { size?: number; dark?: boolean }) {
-  const fg = dark ? "#EFECE5" : "#0D0F11";
-  const bg = dark ? "#0D0F11" : "#EFECE5";
+  const fg = dark ? "#ffffff" : "#1a2333";
+  const bg = dark ? "#1a2333" : "#ffffff";
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden className="flex-none rounded-md">
       <rect width="32" height="32" fill={bg} />
@@ -11,12 +11,12 @@ export function LogoMark({ size = 32, dark = true }: { size?: number; dark?: boo
   );
 }
 
-export function Logo({ dark = true }: { dark?: boolean }) {
+// wordmark ตัวพิมพ์เล็กแบบเทมเพลต + จุดทองแทนเครื่องหมาย ®
+export function Logo({ dark = false, className = "" }: { dark?: boolean; className?: string }) {
   return (
-    <span className="flex items-center gap-3">
-      <LogoMark dark={dark} />
-      <span className="text-lg font-semibold tracking-tight">strata</span>
-      <span className={`font-mono text-[11px] ${dark ? "text-stone-2" : "text-muted"}`}>software studio</span>
+    <span className={`inline-flex items-start text-[22px] leading-none font-semibold tracking-[-0.06em] ${dark ? "text-white" : "text-ink"} ${className}`}>
+      strata
+      <span className="ml-0.5 size-1.5 rounded-full bg-brand" aria-hidden />
     </span>
   );
 }

@@ -42,7 +42,7 @@ export default async function ConversationDetail({ params }: { params: Promise<{
 
   return (
     <div className="flex min-h-dvh flex-col">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#EEEBE4] px-4 py-4 md:px-7">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e3eaf1] px-4 py-4 md:px-7">
         <div className="flex min-w-0 flex-wrap items-center gap-2.5 text-sm">
           <Link href="/admin" className="text-muted hover:text-ink">บทสนทนาทั้งหมด</Link>
           <span className="text-muted">/</span>
@@ -61,7 +61,7 @@ export default async function ConversationDetail({ params }: { params: Promise<{
             <button className={btn}>บันทึก</button>
           </form>
           <form action={async () => { "use server"; await setTakeover(id, c.aiEnabled); }}>
-            <button className={`rounded-md px-3.5 py-1.5 text-[13px] font-semibold ${c.aiEnabled ? "bg-ink text-cream" : "bg-gold text-ink"}`}>
+            <button className={`rounded-full px-4 py-1.5 text-[13px] font-medium transition ${c.aiEnabled ? "bg-ink text-white hover:bg-gold" : "bg-gold text-white hover:bg-ink"}`}>
               {c.aiEnabled ? "รับช่วงต่อจาก AI" : "คืนให้ AI ตอบ"}
             </button>
           </form>
@@ -83,20 +83,20 @@ export default async function ConversationDetail({ params }: { params: Promise<{
                 .map((m) => ({ id: m.id, role: m.role, content: m.content, createdAt: m.createdAt }))}
             />
           </div>
-          <form action={adminReply.bind(null, id)} className="mt-auto border-t border-[#EEEBE4] bg-paper px-4 py-4 md:px-10">
+          <form action={adminReply.bind(null, id)} className="mt-auto border-t border-[#e3eaf1] bg-paper px-4 py-4 md:px-10">
             <div className="mb-2 text-xs text-muted">
               ตอบในนาม Strata — ลูกค้าเห็นข้อความในแชททันที {c.aiEnabled && "(AI จะหยุดตอบในแชทนี้อัตโนมัติ)"}
             </div>
             <div className="flex gap-2">
               <textarea name="message" rows={2} required className="flex-1 resize-y rounded-md border border-sand-2 bg-white px-3 py-2 text-sm outline-none focus:border-gold" placeholder="พิมพ์เพื่อตอบลูกค้าโดยตรง…" />
-              <button className="self-end rounded-md bg-ink px-4 py-2 text-sm font-semibold text-cream">ส่ง</button>
+              <button className="self-end rounded-full bg-ink px-5 py-2 text-sm font-medium text-white">ส่ง</button>
             </div>
           </form>
         </div>
 
         <div className="flex min-h-0 flex-col border-l border-sand">
           <RequirementPanel requirement={requirement} />
-          <div className="flex flex-col gap-5 border-t border-[#EEEBE4] px-7 py-5 text-sm">
+          <div className="flex flex-col gap-5 border-t border-[#e3eaf1] px-7 py-5 text-sm">
             <div className="flex flex-col gap-1">
               <span className="text-xs text-muted">Requirement</span>
               <span>

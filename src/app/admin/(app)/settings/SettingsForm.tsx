@@ -37,7 +37,7 @@ export function SettingsForm({ settings, keys }: { settings: AppSettings; keys: 
         <span className={hint}>ต้องคงกฎ “ห้ามเสนอราคา” ไว้ ระบบจะต่อท้ายสถานะ Requirement ปัจจุบันให้อัตโนมัติ</span>
       </label>
       <div className="flex items-center gap-3">
-        <button disabled={pending} className="rounded-md bg-ink px-5 py-2.5 text-sm font-semibold text-cream disabled:opacity-50">
+        <button disabled={pending} className="rounded-full bg-ink px-6 py-2.5 text-sm font-medium text-white disabled:opacity-50">
           {pending ? "กำลังบันทึก…" : "บันทึก"}
         </button>
         {msg && <span className="text-sm text-gold-dark">{msg}</span>}

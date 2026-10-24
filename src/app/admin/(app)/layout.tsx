@@ -3,7 +3,7 @@ import { count, isNull, sql } from "drizzle-orm";
 import { db, schema } from "@/db";
 import { requireAdmin } from "@/lib/session";
 import { getSettings } from "@/lib/settings";
-import { LogoMark } from "@/components/Logo";
+import { Logo } from "@/components/Logo";
 import { SOURCE_LABEL } from "@/lib/retention";
 import { logout } from "../actions";
 import { NavLink } from "./NavLink";
@@ -37,12 +37,11 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   ];
 
   return (
-    <div className="flex min-h-dvh flex-col md:flex-row">
-      <aside className="flex flex-none flex-col gap-5 bg-ink px-3 py-4 text-stone-1 md:sticky md:top-0 md:h-dvh md:w-60">
+    <div className="flex min-h-dvh flex-col gap-3 bg-[linear-gradient(180deg,#c5d3e0,#dbe4ec_35%)] p-2 md:flex-row md:p-3">
+      <aside className="slide-navy corners flex flex-none flex-col gap-5 overflow-hidden px-3 py-5 text-stone-1 md:sticky md:top-3 md:h-[calc(100dvh-24px)] md:w-60">
         <div className="flex items-center gap-2.5 px-2 py-1">
-          <LogoMark size={26} />
-          <span className="text-[15px] font-semibold text-cream">strata</span>
-          <span className="ml-auto font-mono text-[10px] text-stone-3">ADMIN</span>
+          <Logo dark />
+          <span className="ml-auto rounded-full border border-white/25 px-2 py-0.5 text-[10px] text-stone-2">ADMIN</span>
         </div>
         <nav className="flex flex-col gap-0.5 text-sm">
           {nav.map((n) => (
@@ -50,26 +49,26 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           ))}
         </nav>
         <div className="hidden flex-col gap-0.5 text-[13px] md:flex">
-          <span className="px-2.5 pb-1.5 font-mono text-[10px] font-medium tracking-[.08em] text-stone-3">ช่องทางที่มา</span>
+          <span className="px-2.5 pb-1.5 text-[11px] font-medium text-stone-2">ช่องทางที่มา</span>
           {bySource.map((x) => (
-            <Link key={x.source} href={`/admin?source=${x.source}`} className="flex justify-between rounded-md px-2.5 py-1.5 hover:bg-ink-line">
+            <Link key={x.source} href={`/admin?source=${x.source}`} className="flex justify-between rounded-full px-2.5 py-1.5 transition-colors hover:bg-white/10 hover:text-white">
               <span>{SOURCE_LABEL[x.source] ?? x.source}</span>
-              <span className="font-mono text-xs text-stone-3">{x.n}</span>
+              <span className="text-xs text-stone-2">{x.n}</span>
             </Link>
           ))}
         </div>
-        <div className="mt-auto hidden flex-col gap-2 rounded-lg bg-ink-2 p-3.5 md:flex">
-          <div className="flex items-center gap-2 text-xs text-cream">
-            <span className={`size-1.5 rounded-full ${providers.length ? "bg-[#5FA37E]" : "bg-red-500"}`} />
+        <div className="relative mt-auto hidden flex-col gap-2 border-t border-white/15 px-2.5 pt-4 md:flex">
+          <div className="flex items-center gap-2 text-xs text-white">
+            <span className={`anim-pulse-dot size-1.5 rounded-full ${providers.length ? "bg-[#5FA37E]" : "bg-red-500"}`} />
             {providers.length ? "AI พร้อมใช้งาน" : "ยังไม่ได้ตั้ง API key"}
           </div>
-          <span className="font-mono text-[11px] text-stone-3">{providers.join(" · ") || "GEMINI_API_KEY / GROQ_API_KEY"}</span>
+          <span className="font-mono text-[11px] text-stone-2">{providers.join(" · ") || "GEMINI_API_KEY / GROQ_API_KEY"}</span>
         </div>
         <form action={logout} className="hidden px-2 md:block">
-          <button className="font-mono text-[11px] text-stone-3 hover:text-cream">ออกจากระบบ ({user})</button>
+          <button className="text-[12px] text-stone-2 underline-offset-4 hover:text-white hover:underline">ออกจากระบบ ({user})</button>
         </form>
       </aside>
-      <main className="min-w-0 flex-1 bg-white">{children}</main>
+      <main className="slide corners min-w-0 flex-1 overflow-hidden">{children}</main>
     </div>
   );
 }
